@@ -1,0 +1,47 @@
+.main-page {
+    width: 100dvw;
+    height: 300dvh;
+    background-color: pink;
+}
+
+.section {
+    height: 100dvh;
+    width: 100%;
+}
+
+.first-section {
+    background-color: lightgreen;
+}
+
+.second-section {
+    background-color: lightseagreen;
+}
+
+.third-section {
+    background-color: lightgoldenrodyellow;
+}
+
+.box-1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+/* 
+.box-2 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+
+/* 
+.box-3 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    top: 600;
+    right: 600;
+} */
