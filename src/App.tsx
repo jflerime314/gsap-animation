@@ -13,9 +13,11 @@ function App() {
   const secondSectionRef = useRef<HTMLElement>(null);
   const thirdSectionRef = useRef<HTMLElement>(null);
 
+  const tl = useRef<gsap.core.Timeline | null>(null);
+
   useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(".test-section .box-1",{
+    tl.current = gsap.timeline({paused: true});
+    tl.current.fromTo(".test-section .box-1",{
       x:0,
       backgroundColor: "red",
     }, {
@@ -24,14 +26,14 @@ function App() {
       ease: "power2.inOut",
       duration: 3,
     }, 0)
-    tl.fromTo(".box-1-text", {
+    tl.current.fromTo(".box-1-text", {
       opacity: 0,
     }, {
       opacity: 1,
       ease: "power2.out",
       duration: 1,
     }, 3)
-    tl.fromTo(".test-section .box-2", {
+    tl.current.fromTo(".test-section .box-2", {
       x:0,
       backgroundColor: "blue",
     }, {
@@ -40,14 +42,14 @@ function App() {
       ease: "power2.inOut",
       duration: 3,
     }, 0)
-    tl.fromTo(".box-2-text", {
+    tl.current.fromTo(".box-2-text", {
       opacity: 0,
     }, {
       opacity: 1,
       ease: "power2.out",
       duration: 3,
     }, 3)
-    tl.fromTo(".test-section .box-3", {
+    tl.current.fromTo(".test-section .box-3", {
       x:0,
       backgroundColor: "green",
     }, {
@@ -56,7 +58,7 @@ function App() {
       ease: "power2.inOut",
       duration: 3,
     }, 0)
-    tl.fromTo(".box-3-text", {
+    tl.current.fromTo(".box-3-text", {
       opacity: 0,
     }, {
       opacity: 1,
@@ -64,7 +66,7 @@ function App() {
       duration: 3,
     }, 3)
 
-    tl.fromTo(".test-section .box-4", {
+    tl.current.fromTo(".test-section .box-4", {
       x:0,
       backgroundColor:"black",
       ease: "power2.inOut",
@@ -75,7 +77,7 @@ function App() {
       ease: "power2.inOut",
       duration: 3,
     }, 0)
-    tl.fromTo(".box-4-text", {
+    tl.current.fromTo(".box-4-text", {
       opacity: 0,
     }, {
       opacity: 1,
@@ -84,8 +86,20 @@ function App() {
     }, 3)
   });
 
+  const activateAnimation = () => {
+    tl.current?.play();
+  }
+
+  const restartAnimation = () => {
+    tl.current?.restart();
+  }
+
   return (
     <div ref={mainPageRef} className="main-page">
+      <section className="button-container-section p-4 flex gap-4">
+        <button onClick={activateAnimation} className="py-2 px-4 text-white bg-amber-600 border border-blue-400">Activate</button>
+        <button onClick={restartAnimation} className="py-2 px-4 text-white bg-amber-600 border border-blue-400">Restart</button>
+      </section>
       <section className="test-section section">
         <div className="box-1 w-[100px] h-[100px] bg-red-500">
           <h1 className="box-1-text text-[10px] text-white p-4">Welcome to the right place</h1>
