@@ -1,0 +1,22 @@
+.main-page {
+    width: 100dvw;
+    height: auto;
+    background-color: pink;
+}
+
+.section {
+    height: 100dvh;
+    width: 100%;
+}
+
+/* .first-section {
+    background-color: lightgreen;
+} */
+
+.second-section {
+    background-color: lightseagreen;
+}
+
+.third-section {
+    background-color: lightgoldenrodyellow;
+}
