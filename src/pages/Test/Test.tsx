@@ -20,7 +20,6 @@ function Test() {
   const firstSectionRef = useRef<HTMLElement>(null);
   const secondSectionRef = useRef<HTMLElement>(null);
   const thirdSectionRef = useRef<HTMLElement>(null);
-  const bridge = useRef<HTMLDivElement>(null);
   const s1 = useRef<HTMLDivElement>(null);
   const s2 = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
@@ -160,6 +159,7 @@ function Test() {
       content: mainPageRef.current,
       smooth: 4,
     });
+    console.log(smoothScroll);
     animationContainer["firstSection"].current = gsap.timeline({
       paused: true,
     });
@@ -205,7 +205,7 @@ function Test() {
   };
 
   useGSAP(() => {
-    // testAnimation();
+    testAnimation();
     firstSectionAnimation();
   }, []);
 
